@@ -465,12 +465,16 @@ void single_llist::insert_pos()
 
 
 //ABHISHEK
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/abhishek
 /*
 
  * Sorting Link List
 
  */
+<<<<<<< HEAD
  void single_llist::sort()
 {
     struct node *ptr, *s;
@@ -659,3 +663,225 @@ void single_llist::display()
     }
     cout<<"NULL"<<endl;
 }
+=======
+
+ void single_llist::sort()
+
+{
+
+    struct node *ptr, *s;
+
+    int value;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"The List is empty"<<endl;
+
+        return;
+
+    }
+
+    ptr = start;
+
+    while (ptr != NULL)
+
+    {
+
+        for (s = ptr->next;s !=NULL;s = s->next)
+
+        {
+
+            if (ptr->info > s->info)
+
+            {
+
+                value = ptr->info;
+
+                ptr->info = s->info;
+
+                s->info = value;
+
+            }
+
+        }
+
+        ptr = ptr->next;
+
+    }
+
+}
+
+
+
+/*
+
+ * Delete element at a given position
+
+ */
+
+void single_llist::delete_pos()
+
+{
+
+    int pos, i, counter = 0;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"List is empty"<<endl;
+
+        return;
+
+    }
+
+    cout<<"Enter the position of value to be deleted: ";
+
+    cin>>pos;
+
+    struct node *s, *ptr;
+
+    s = start;
+
+    if (pos == 1)
+
+    {
+
+        start = s->next;
+
+    }
+
+    else
+
+    {
+
+        while (s != NULL)
+
+        {
+
+            s = s->next;
+
+            counter++;
+
+        }
+
+        if (pos > 0 && pos <= counter)
+
+        {
+
+            s = start;
+
+            for (i = 1;i < pos;i++)
+
+            {
+
+                ptr = s;
+
+                s = s->next;
+
+            }
+
+            ptr->next = s->next;
+
+        }
+
+        else
+
+        {
+
+            cout<<"Position out of range"<<endl;
+
+        }
+
+        free(s);
+
+        cout<<"Element Deleted"<<endl;
+
+    }
+
+}
+
+
+
+/*
+
+ * Update a given Node
+
+ */
+
+void single_llist::update()
+
+{
+
+    int value, pos, i;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"List is empty"<<endl;
+
+        return;
+
+    }
+
+    cout<<"Enter the node postion to be updated: ";
+
+    cin>>pos;
+
+    cout<<"Enter the new value: ";
+
+    cin>>value;
+
+    struct node *s, *ptr;
+
+    s = start;
+
+    if (pos == 1)
+
+    {
+
+        start->info = value;
+
+    }
+
+    else
+
+    {
+
+        for (i = 0;i < pos - 1;i++)
+
+        {
+
+            if (s == NULL)
+
+            {
+
+                cout<<"There are less than "<<pos<<" elements";
+
+                return;
+
+            }
+
+            s = s->next;
+
+        }
+
+        s->info = value;
+
+    }
+
+    cout<<"Node Updated"<<endl;
+
+}
+
+
+
+/*
+
+ * Searching an element
+
+ */
+>>>>>>> origin/abhishek
